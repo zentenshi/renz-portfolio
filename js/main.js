@@ -271,10 +271,11 @@
 <div class="terminal-line info"><strong>Available Commands:</strong></div>
 <div class="terminal-line muted">  • <span class="highlight">status</span>    : Check live Command Center & system telemetry</div>
 <div class="terminal-line muted">  • <span class="highlight">projects</span>  : List key projects & GitHub repositories</div>
+<div class="terminal-line muted">  • <span class="highlight">wordwiz</span>   : Launch WordWiz (Fantasy RPG Word Battler web app)</div>
+<div class="terminal-line muted">  • <span class="highlight">japanese</span>  : Launch Unfriendly Japanese (JLPT N5-N4 platform)</div>
 <div class="terminal-line muted">  • <span class="highlight">snmp</span>      : Run Network SNMP Exporter & PEN/OID discovery probe</div>
 <div class="terminal-line muted">  • <span class="highlight">speedtest</span> : Probe office internet latency & bandwidth metrics</div>
 <div class="terminal-line muted">  • <span class="highlight">darktrace</span> : Run Darktrace security telemetry exporter simulation</div>
-<div class="terminal-line muted">  • <span class="highlight">japanese</span>  : Launch Unfriendly Japanese (JLPT N5-N4 platform)</div>
 <div class="terminal-line muted">  • <span class="highlight">skills</span>    : Display technical capability matrix</div>
 <div class="terminal-line muted">  • <span class="highlight">certs</span>     : Display PhilNITS FE & JLPT certifications</div>
 <div class="terminal-line muted">  • <span class="highlight">whoami</span>    : Display profile & bio</div>
@@ -293,15 +294,34 @@
 `,
     projects: `
 <div class="terminal-line info"><strong>Selected Projects Database:</strong></div>
-<div class="terminal-line muted">[01] <strong>Network SNMP Exporter</strong> : Auto-discovery & PEN/OID metrics parser for Grafana</div>
-<div class="terminal-line muted">[02] <strong>Office Speedtest</strong>     : Automated bandwidth & latency SLA telemetry in Grafana</div>
+<div class="terminal-line muted">[01] <strong>WordWiz: Arcane Lexicon</strong> : Fantasy word battler RPG web game (<a href="https://word-wizd-vercel.vercel.app/" target="_blank" style="color:#48CAE4">word-wizd-vercel.vercel.app</a>)</div>
+<div class="terminal-line muted">[02] <strong>Unfriendly Japanese</strong>  : JLPT N5 to N4 Japanese grammar platform (<a href="https://zentenshi.github.io/chipp/" target="_blank" style="color:#48CAE4">zentenshi.github.io/chipp</a>)</div>
 <div class="terminal-line muted">[03] <strong>Darktrace Exporter</strong>   : Prometheus/Grafana security anomaly parser</div>
-<div class="terminal-line muted">[04] <strong>Unfriendly Japanese</strong>  : JLPT N5 to N4 Japanese grammar platform (<a href="https://zentenshi.github.io/chipp/" target="_blank" style="color:#48CAE4">zentenshi.github.io/chipp</a>)</div>
-<div class="terminal-line muted">[05] <strong>AltruWiz</strong>              : React, TypeScript, Firebase community platform (<a href="https://github.com/AltruWiz/altruWiz" target="_blank" style="color:#48CAE4">github.com/AltruWiz/altruWiz</a>)</div>
-<div class="terminal-line muted">[06] <strong>SharePoint SPFx</strong>      : Power Apps & Automate enterprise tools for JP client</div>
-<div class="terminal-line muted">[07] <strong>Zoom API Sync</strong>        : Automated operational call telemetry in Google Sheets</div>
-<div class="terminal-line muted">[08] <strong>AHRide</strong>               : Decoupled full-stack delivery app (<a href="https://github.com/AHRide/AHRide" target="_blank" style="color:#48CAE4">github.com/AHRide/AHRide</a>)</div>
-<div class="terminal-line muted">[09] <strong>Audibook</strong>             : Android Gradle native audio chapter player (<a href="https://github.com/zentenshi/audibookfinal" target="_blank" style="color:#48CAE4">github.com/zentenshi/audibookfinal</a>)</div>
+<div class="terminal-line muted">[04] <strong>Network SNMP Exporter</strong> : Auto-discovery & PEN/OID metrics parser for Grafana</div>
+<div class="terminal-line muted">[05] <strong>Office Speedtest</strong>     : Automated bandwidth & latency SLA telemetry in Grafana</div>
+<div class="terminal-line muted">[06] <strong>AltruWiz</strong>              : React, TypeScript, Firebase community platform (<a href="https://github.com/AltruWiz/altruWiz" target="_blank" style="color:#48CAE4">github.com/AltruWiz/altruWiz</a>)</div>
+<div class="terminal-line muted">[07] <strong>SharePoint SPFx</strong>      : Power Apps & Automate enterprise tools for JP client</div>
+<div class="terminal-line muted">[08] <strong>Zoom API Sync</strong>        : Automated operational call telemetry in Google Sheets</div>
+<div class="terminal-line muted">[09] <strong>AHRide</strong>               : Decoupled full-stack delivery app (<a href="https://github.com/AHRide/AHRide" target="_blank" style="color:#48CAE4">github.com/AHRide/AHRide</a>)</div>
+<div class="terminal-line muted">[10] <strong>Audibook</strong>             : Android Gradle native audio chapter player (<a href="https://github.com/zentenshi/audibookfinal" target="_blank" style="color:#48CAE4">github.com/zentenshi/audibookfinal</a>)</div>
+`,
+    wordwiz: `
+<div class="terminal-line success">[WORDWIZ // ARCANE LEXICON RPG]</div>
+<div class="terminal-line info">NAME        : WordWiz: Arcane Lexicon (Fantasy Word Battler RPG)</div>
+<div class="terminal-line info">GENRE       : Turn-Based Spellcasting Word RPG (Bookworm Adventures Inspired)</div>
+<div class="terminal-line info">STACK       : TypeScript · Vite · Vercel · Web Audio</div>
+<div class="terminal-line info">LIVE GAME   : <a href="https://word-wizd-vercel.vercel.app/" target="_blank" style="color:#48CAE4">https://word-wizd-vercel.vercel.app/</a></div>
+<div class="terminal-line muted">Description : Forge word incantations from letter tiles to deal elemental damage, defeat monsters, unlock relics, and journey across dungeon realms.</div>
+`,
+    "word-wiz": `
+<div class="terminal-line success">[WORDWIZ // ARCANE LEXICON RPG]</div>
+<div class="terminal-line info">NAME        : WordWiz: Arcane Lexicon (Fantasy Word Battler RPG)</div>
+<div class="terminal-line info">LIVE GAME   : <a href="https://word-wizd-vercel.vercel.app/" target="_blank" style="color:#48CAE4">https://word-wizd-vercel.vercel.app/</a></div>
+`,
+    wiz: `
+<div class="terminal-line success">[WORDWIZ // ARCANE LEXICON RPG]</div>
+<div class="terminal-line info">NAME        : WordWiz: Arcane Lexicon (Fantasy Word Battler RPG)</div>
+<div class="terminal-line info">LIVE GAME   : <a href="https://word-wizd-vercel.vercel.app/" target="_blank" style="color:#48CAE4">https://word-wizd-vercel.vercel.app/</a></div>
 `,
     snmp: `
 <div class="terminal-line success">[SNMP_EXPORTER // AUTO-DISCOVERY ENGINE]</div>
