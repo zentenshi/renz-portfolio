@@ -104,8 +104,15 @@
   }
   requestAnimationFrame(renderCursor);
 
-  // Magnetic hover effect
-  const hoverTargets = document.querySelectorAll('a, button, .project-card, .stat-box, .telemetry-card-mini, .term-btn, .cmd-chip');
+  // Magnetic hover effect & Split Name Interactive Toggle
+  const heroName = document.getElementById('heroName');
+  if (heroName) {
+    heroName.addEventListener('click', () => {
+      heroName.classList.toggle('split-active');
+    });
+  }
+
+  const hoverTargets = document.querySelectorAll('a, button, .project-card, .stat-box, .telemetry-card-mini, .term-btn, .cmd-chip, .interactive-split-name');
   hoverTargets.forEach((target) => {
     target.addEventListener('mouseenter', () => {
       if (cursor) cursor.classList.add('hovering');
@@ -264,8 +271,11 @@
 <div class="terminal-line info"><strong>Available Commands:</strong></div>
 <div class="terminal-line muted">  • <span class="highlight">status</span>    : Check live Command Center & system telemetry</div>
 <div class="terminal-line muted">  • <span class="highlight">projects</span>  : List key projects & GitHub repositories</div>
-<div class="terminal-line muted">  • <span class="highlight">skills</span>    : Display technical capability matrix</div>
+<div class="terminal-line muted">  • <span class="highlight">snmp</span>      : Run Network SNMP Exporter & PEN/OID discovery probe</div>
+<div class="terminal-line muted">  • <span class="highlight">speedtest</span> : Probe office internet latency & bandwidth metrics</div>
 <div class="terminal-line muted">  • <span class="highlight">darktrace</span> : Run Darktrace security telemetry exporter simulation</div>
+<div class="terminal-line muted">  • <span class="highlight">japanese</span>  : Launch Unfriendly Japanese (JLPT N5-N4 platform)</div>
+<div class="terminal-line muted">  • <span class="highlight">skills</span>    : Display technical capability matrix</div>
 <div class="terminal-line muted">  • <span class="highlight">certs</span>     : Display PhilNITS FE & JLPT certifications</div>
 <div class="terminal-line muted">  • <span class="highlight">whoami</span>    : Display profile & bio</div>
 <div class="terminal-line muted">  • <span class="highlight">theme</span>     : Toggle Yin/Yang theme (usage: theme yin | theme yang)</div>
@@ -274,20 +284,52 @@
 `,
     status: `
 <div class="terminal-line success">[SYS_TELEMETRY: OPTIMAL]</div>
-<div class="terminal-line info">OPERATOR      : Renz Brian Velez (R&D Engineer)</div>
+<div class="terminal-line info">OPERATOR      : Renz Brian "Zen" Velez [善] (R&D Engineer)</div>
 <div class="terminal-line info">LOCATION      : Bogo City, Cebu, Philippines</div>
 <div class="terminal-line info">COMMAND CENTER: 6 Teams Monitored (Windows, Network, Cloud, SRE, Cyber, Storage)</div>
+<div class="terminal-line info">EXPORTERS     : SNMP Auto-Discovery · Speedtest Daemon · Darktrace Bridge</div>
 <div class="terminal-line info">ACTIVE BOTS   : Securio Governance · Zoom API Ingestion · PAD Web QA</div>
 <div class="terminal-line success">SECURITY AUDIT: 100% Passed · Escalation Bridges Operational</div>
 `,
     projects: `
 <div class="terminal-line info"><strong>Selected Projects Database:</strong></div>
-<div class="terminal-line muted">[01] <strong>Darktrace Exporter</strong> : Prometheus/Grafana security metric parser</div>
-<div class="terminal-line muted">[02] <strong>AltruWiz</strong>            : React, TypeScript, Firebase community service platform (<a href="https://github.com/AltruWiz/altruWiz" target="_blank" style="color:#48CAE4">github.com/AltruWiz/altruWiz</a>)</div>
-<div class="terminal-line muted">[03] <strong>SharePoint SPFx</strong>    : Power Apps & Automate enterprise solutions for JP client</div>
-<div class="terminal-line muted">[04] <strong>Zoom API Sync</strong>     : Automated operational call telemetry in Google Sheets</div>
-<div class="terminal-line muted">[05] <strong>AHRide</strong>            : Decoupled full-stack delivery app (<a href="https://github.com/AHRide/AHRide" target="_blank" style="color:#48CAE4">github.com/AHRide/AHRide</a>)</div>
-<div class="terminal-line muted">[06] <strong>Audibook</strong>          : Android Gradle native audio chapter player (<a href="https://github.com/zentenshi/audibookfinal" target="_blank" style="color:#48CAE4">github.com/zentenshi/audibookfinal</a>)</div>
+<div class="terminal-line muted">[01] <strong>Network SNMP Exporter</strong> : Auto-discovery & PEN/OID metrics parser for Grafana</div>
+<div class="terminal-line muted">[02] <strong>Office Speedtest</strong>     : Automated bandwidth & latency SLA telemetry in Grafana</div>
+<div class="terminal-line muted">[03] <strong>Darktrace Exporter</strong>   : Prometheus/Grafana security anomaly parser</div>
+<div class="terminal-line muted">[04] <strong>Unfriendly Japanese</strong>  : JLPT N5 to N4 Japanese grammar platform (<a href="https://zentenshi.github.io/chipp/" target="_blank" style="color:#48CAE4">zentenshi.github.io/chipp</a>)</div>
+<div class="terminal-line muted">[05] <strong>AltruWiz</strong>              : React, TypeScript, Firebase community platform (<a href="https://github.com/AltruWiz/altruWiz" target="_blank" style="color:#48CAE4">github.com/AltruWiz/altruWiz</a>)</div>
+<div class="terminal-line muted">[06] <strong>SharePoint SPFx</strong>      : Power Apps & Automate enterprise tools for JP client</div>
+<div class="terminal-line muted">[07] <strong>Zoom API Sync</strong>        : Automated operational call telemetry in Google Sheets</div>
+<div class="terminal-line muted">[08] <strong>AHRide</strong>               : Decoupled full-stack delivery app (<a href="https://github.com/AHRide/AHRide" target="_blank" style="color:#48CAE4">github.com/AHRide/AHRide</a>)</div>
+<div class="terminal-line muted">[09] <strong>Audibook</strong>             : Android Gradle native audio chapter player (<a href="https://github.com/zentenshi/audibookfinal" target="_blank" style="color:#48CAE4">github.com/zentenshi/audibookfinal</a>)</div>
+`,
+    snmp: `
+<div class="terminal-line success">[SNMP_EXPORTER // AUTO-DISCOVERY ENGINE]</div>
+<div class="terminal-line info">PROBE STATUS  : 200 OK · Scanning Subnets</div>
+<div class="terminal-line muted">Discovery     : Polling Private Enterprise Numbers (PEN) & Enterprise OIDs...</div>
+<div class="terminal-line info">Discovered    : Switches, Routers, Firewalls, Storage Nodes</div>
+<div class="terminal-line success">Ingestion     : CPU, Memory, Disk usage & Interface Traffic -> Grafana Dashboard</div>
+`,
+    speedtest: `
+<div class="terminal-line success">[OFFICE_SPEEDTEST_EXPORTER // NETWORK SLA]</div>
+<div class="terminal-line info">ISP GATEWAY   : Enterprise Fiber Backbone</div>
+<div class="terminal-line info">LATENCY       : 8ms | JITTER: 1.2ms</div>
+<div class="terminal-line info">THROUGHPUT    : ↓ 480 Mbps | ↑ 465 Mbps</div>
+<div class="terminal-line success">STATUS        : Optimal · Continuous Grafana Time-Series Stream Active</div>
+`,
+    japanese: `
+<div class="terminal-line success">[UNFRIENDLY JAPANESE // 日本語文法]</div>
+<div class="terminal-line info">NAME        : Unfriendly Japanese (JLPT N5 - N4 Grammar)</div>
+<div class="terminal-line info">TARGET      : JLPT N5 - N4 Grammar, Verb Conjugations, Contextual Patterns</div>
+<div class="terminal-line info">LIVE SITE   : <a href="https://zentenshi.github.io/chipp/" target="_blank" style="color:#48CAE4">https://zentenshi.github.io/chipp/</a></div>
+<div class="terminal-line info">REPOSITORY  : <a href="https://github.com/zentenshi/chipp" target="_blank" style="color:#48CAE4">https://github.com/zentenshi/chipp</a></div>
+<div class="terminal-line muted">Description : Interactive educational platform built with Jekyll & GitHub Pages.</div>
+`,
+    chipp: `
+<div class="terminal-line success">[UNFRIENDLY JAPANESE // 日本語文法]</div>
+<div class="terminal-line info">NAME        : Unfriendly Japanese (JLPT N5 - N4 Grammar)</div>
+<div class="terminal-line info">LIVE SITE   : <a href="https://zentenshi.github.io/chipp/" target="_blank" style="color:#48CAE4">https://zentenshi.github.io/chipp/</a></div>
+<div class="terminal-line info">REPOSITORY  : <a href="https://github.com/zentenshi/chipp" target="_blank" style="color:#48CAE4">https://github.com/zentenshi/chipp</a></div>
 `,
     skills: `
 <div class="terminal-line info"><strong>Capabilities Matrix:</strong></div>
@@ -312,7 +354,7 @@
 <div class="terminal-line success">✔ BS in Computer Engineering — CIT-U (President, ICPEP-SE CIT-U Chapter)</div>
 `,
     whoami: `
-<div class="terminal-line info">Renz Brian Velez — R&D Engineer @ Advanced World Solutions Inc.</div>
+<div class="terminal-line info">Renz Brian "Zen" Velez (善) — R&D Engineer @ Advanced World Solutions Inc.</div>
 <div class="terminal-line muted">Philosophy: Order from noise. Merging vigilant Command Center infrastructure monitoring with autonomous scripting and cyber telemetry.</div>
 `,
     contact: `
