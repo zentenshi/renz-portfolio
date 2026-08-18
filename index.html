@@ -1,337 +1,613 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renz Brian Velez · R&D Engineer</title>
-<meta name="description" content="Renz Brian Velez — Research & Development Engineer. IT operations, automation, and Power Platform development.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renz Brian Velez · R&D Engineer | IT Operations, Automation & Cyber Security</title>
+  <meta name="description" content="Renz Brian Velez — R&D Engineer specializing in enterprise IT Command Center operations, Power Platform automation, and cybersecurity telemetry. Certified PhilNITS FE & JLPT N4.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- yin-yang scroll / theme mark -->
-<button class="mark" id="themeToggle" aria-label="Toggle yin / yang theme">
-  <svg viewBox="0 0 100 100" id="markSvg">
-    <circle class="mark-ring" cx="50" cy="50" r="47"/>
-    <path class="mark-swirl" d="M50,3 A47,47 0 0,1 50,97 A23.5,23.5 0 0,1 50,50 A23.5,23.5 0 0,0 50,3 Z"/>
-    <circle class="mark-dot mark-dot-a" cx="50" cy="26" r="6"/>
-    <circle class="mark-dot mark-dot-b" cx="50" cy="74" r="6"/>
-  </svg>
-</button>
+  <!-- Ambient Interactive Canvas (Sumi Ink / Cyber Particles) -->
+  <canvas id="zenCanvas" class="zen-canvas"></canvas>
 
-<nav class="nav">
-  <a href="#top" class="nav-name">R.B.V.</a>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#work">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="brand-wrapper">
+      <a href="#top" class="brand-stamp" aria-label="Renz Brian Velez Home">連</a>
+      <span class="brand-text">RENZ BRIAN VELEZ</span>
+    </div>
+
+    <nav class="nav-center" aria-label="Main Navigation">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#terminal" class="nav-link">Console</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#credentials" class="nav-link">Credentials</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-controls">
+      <div class="telemetry-badge-mini" title="Live Operations Status">
+        <span class="pulse-dot"></span>
+        <span>COMMAND CENTER // ACTIVE</span>
+      </div>
+
+      <!-- Yin-Yang Theme Switcher -->
+      <button class="theme-mark-btn" id="themeToggle" aria-label="Toggle Yin / Yang Theme" title="Toggle Yin (Dark) / Yang (Light)">
+        <svg viewBox="0 0 100 100" class="theme-svg" id="themeSvg">
+          <circle class="ring" cx="50" cy="50" r="47"/>
+          <path class="swirl" d="M50,3 A47,47 0 0,1 50,97 A23.5,23.5 0 0,1 50,50 A23.5,23.5 0 0,0 50,3 Z"/>
+          <circle class="dot-a" cx="50" cy="26" r="6"/>
+          <circle class="dot-b" cx="50" cy="74" r="6"/>
+        </svg>
+      </button>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer">
+    <div class="mobile-nav-links">
+      <a href="#about" class="mobile-nav-link"><span>01</span> About</a>
+      <a href="#experience" class="mobile-nav-link"><span>02</span> Experience</a>
+      <a href="#projects" class="mobile-nav-link"><span>03</span> Projects</a>
+      <a href="#terminal" class="mobile-nav-link"><span>04</span> Console</a>
+      <a href="#skills" class="mobile-nav-link"><span>05</span> Skills</a>
+      <a href="#credentials" class="mobile-nav-link"><span>06</span> Credentials</a>
+      <a href="#contact" class="mobile-nav-link"><span>07</span> Contact</a>
+    </div>
   </div>
-</nav>
 
-<main>
+  <main>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <p class="eyebrow">研究開発エンジニア · Research &amp; Development Engineer</p>
-      <h1 class="hero-title">Renz Brian<br>Velez</h1>
-      <p class="hero-lede">
-        I keep enterprise systems visible and automate the parts nobody wants to repeat —
-        infrastructure monitoring by day, Power Platform and scripts that quietly remove
-        the busywork by night. Order from noise; that's the whole job.
-      </p>
-      <div class="hero-actions">
-        <a href="mailto:just.renz.official@gmail.com" class="btn btn-primary">Get in touch</a>
-        <a href="https://linkedin.com/in/velezrenz" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
-      </div>
-      <ul class="hero-facts">
-        <li>Based in Bogo City, Cebu, Philippines</li>
-        <li>Focus — IT Operations, Automation &amp; Power Platform</li>
-        <li>Currently R&amp;D Engineer @ Advanced World Solutions Inc.</li>
-      </ul>
-    </div>
-    <p class="scroll-cue">Scroll — 続く</p>
-  </section>
+    <!-- HERO SECTION (Spatial Minimalism & Live Telemetry) -->
+    <section class="hero-section" id="top">
+      <div class="hero-content">
+        <div class="hero-eyebrow-container">
+          <span class="kanji-motto">和 · 守 · 創</span>
+          <span class="hero-telemetry-tag">[SYS_INIT: OK] · IT Operations · Automation · Cybersecurity R&amp;D</span>
+        </div>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="section-head">
-      <span class="section-tag">和 · Balance</span>
-      <h2>About</h2>
-    </div>
-    <div class="about-grid">
-      <p class="about-lead">
-        Two things sit side by side in my work: the vigilance of keeping infrastructure
-        upright, and the quiet satisfaction of automating away a task so it never has
-        to be done by hand again.
-      </p>
-      <div class="about-body">
-        <p>
-          I work the Command Center floor — Windows, Network, Cloud, SRE/Unix, Cybersecurity,
-          and Storage all crossing my desk — escalating incidents and coordinating with clients
-          when something needs a human voice, fast. Outside the floor, I build: SharePoint sites
-          for Classic and Modern experience, Power Apps forms and canvas apps, Power Automate
-          flows, SPFx customizations, and exporter tools that turn raw monitoring data into
-          dashboards people actually look at.
+        <h1 class="hero-name">
+          Renz Brian<br>Velez
+          <span class="hero-name-kanji">ヴェレス・レンツ · 研究開発</span>
+        </h1>
+
+        <p class="hero-lead">
+          I keep enterprise systems visible and automate the parts nobody wants to repeat —
+          <strong>Command Center infrastructure monitoring</strong> by day, <strong>Power Platform automation</strong>,
+          and <strong>cybersecurity telemetry</strong> by night. Order from noise; that's the whole craft.
         </p>
-        <p>
-          I passed the PhilNITS Fundamental Information Technology Engineer exam and
-          JLPT N4 during training, and I've supported cross-functional technical and
-          Japan-facing teams since. I like problems with a clear before-and-after: manual
-          today, automatic tomorrow.
-        </p>
-      </div>
-    </div>
-    <div class="stat-row">
-      <div class="stat"><span class="stat-num">3+</span><span class="stat-label">Years in IT ops &amp; R&amp;D</span></div>
-      <div class="stat"><span class="stat-num">FE</span><span class="stat-label">PhilNITS certified</span></div>
-      <div class="stat"><span class="stat-num">N4</span><span class="stat-label">JLPT Japanese</span></div>
-      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Teams monitored daily</span></div>
-    </div>
-  </section>
 
-  <!-- EXPERIENCE -->
-  <section class="section" id="work">
-    <div class="section-head">
-      <span class="section-tag">道 · Path</span>
-      <h2>Experience</h2>
-    </div>
-    <div class="timeline">
-
-      <article class="entry">
-        <div class="entry-when">
-          <span class="entry-dot"></span>
-          <span class="entry-date">Jul 2023 — Present</span>
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary magnetic">Explore Projects</a>
+          <a href="#terminal" class="btn btn-secondary magnetic">Interactive Console ⌨</a>
+          <a href="https://linkedin.com/in/velezrenz" target="_blank" rel="noopener" class="btn btn-ghost magnetic">LinkedIn ↗</a>
         </div>
-        <div class="entry-body">
-          <h3>Research &amp; Development Engineer</h3>
-          <p class="entry-org">Advanced World Solutions Inc.</p>
-          <ul>
-            <li>Monitor enterprise infrastructure across Windows, Network, Cloud, SRE/Unix, Cybersecurity, and Storage as part of the Command Center operations team.</li>
-            <li>Handle real-time incident escalation and client coordination over chat and voice during critical alerts.</li>
-            <li>Built a Google Sheets + Zoom API automation that logs outgoing call records automatically, cutting manual tracking effort.</li>
-            <li>Built an internal Darktrace exporter converting raw security data into Grafana-compatible metrics for centralized dashboards.</li>
-            <li>Automated monthly Securio security-awareness training admin, improving compliance tracking.</li>
-            <li>Developed SharePoint &amp; Power Platform solutions — Power Apps forms, Power Automate workflows, SPFx customizations — for internal and client projects.</li>
-            <li>Built Power Automate Desktop workflows for website component validation, CSV reporting, and UI test automation.</li>
-          </ul>
+
+        <!-- Live Operational Telemetry Ribbon (Yasio.dev inspired) -->
+        <div class="live-telemetry-ribbon">
+          <div class="telemetry-card-mini">
+            <span class="card-code">SYS_STATUS: 01</span>
+            <div class="card-title">Enterprise Ops Floor</div>
+            <div class="card-desc">Monitoring 6 core domains: Windows, Network, Cloud, SRE/Unix, Cyber, Storage.</div>
+          </div>
+          <div class="telemetry-card-mini">
+            <span class="card-code">AUTOMATION: 02</span>
+            <div class="card-title">Pipelines &amp; Integrations</div>
+            <div class="card-desc">Darktrace Exporter, Zoom API call-logging, and Power Automate Desktop UI test bots.</div>
+          </div>
+          <div class="telemetry-card-mini">
+            <span class="card-code">CREDENTIALS: 03</span>
+            <div class="card-title">PhilNITS FE &amp; JLPT N4</div>
+            <div class="card-desc">Fundamental IT Engineer certified + bilingual Japanese technical team collaboration.</div>
+          </div>
         </div>
-      </article>
 
-      <article class="entry">
-        <div class="entry-when">
-          <span class="entry-dot"></span>
-          <span class="entry-date">Jul 2022 — Oct 2022</span>
+        <div class="scroll-indicator">
+          <span>SCROLL TO EXPLORE</span>
+          <span>↓</span>
         </div>
-        <div class="entry-body">
-          <h3>Web Developer Intern (OJT)</h3>
-          <p class="entry-org">Sun* Inc.</p>
-          <ul>
-            <li>Worked inside an Agile Scrum team with senior developers through project implementation and training.</li>
-            <li>Trained in React, JavaScript, Docker, Heroku, QA, and project management.</li>
-            <li>Built responsive front-end interfaces with React, HTML, CSS, and Bootstrap.</li>
-            <li>Led a project team during the implementation phase, coordinating tasks with senior engineers.</li>
-          </ul>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION (和 · Balance & Vigilance) -->
+    <section class="section" id="about">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="section-tag">和 · BALANCE</span>
+          <h2>About &amp; Philosophy</h2>
         </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="section-head">
-      <span class="section-tag">作 · Made</span>
-      <h2>Selected Projects</h2>
-    </div>
-    <div class="project-grid">
-
-      <article class="project-card">
-        <h3>Darktrace Exporter &amp; Grafana Integration</h3>
-        <p>Internal exporter transforming raw Darktrace security-monitoring data into structured Grafana metrics for centralized infrastructure visibility.</p>
-        <ul class="tag-list">
-          <li>Grafana</li><li>Security Monitoring</li><li>Observability</li>
-        </ul>
-      </article>
-
-      <article class="project-card">
-        <h3>Web Scraping &amp; Test Automation</h3>
-        <p>Power Automate Desktop workflows validating UI components across JSON and CSV datasets, with automated timestamped test reporting.</p>
-        <ul class="tag-list">
-          <li>Power Automate Desktop</li><li>QA</li><li>Reporting</li>
-        </ul>
-      </article>
-
-      <article class="project-card">
-        <h3>Zoom API Call-Logging Automation</h3>
-        <p>Google Sheets reporting pipeline wired to the Zoom API, retrieving and logging outgoing call data for operational tracking.</p>
-        <ul class="tag-list">
-          <li>Zoom API</li><li>Google Sheets</li><li>Automation</li>
-        </ul>
-      </article>
-
-      <article class="project-card">
-        <h3>SharePoint Development for a Japanese Client</h3>
-        <p>SharePoint work spanning Classic and Modern experience — Power Apps custom forms, Power Automate triggers that email dynamic list data to managers with auto-shortened links, group-restricted views, and a custom floating-button web part built both the old way (Classic) and via SPFx Extension Application Customizer (Modern).</p>
-        <ul class="tag-list">
-          <li>SharePoint</li><li>Power Apps</li><li>Power Automate</li><li>SPFx</li>
-        </ul>
-      </article>
-
-      <article class="project-card">
-        <h3>Wired Brain Coffee</h3>
-        <p>A model-driven app tracking a coffee shop and its franchise locations. Designed the data model — landlords to coffee shops, coffee shops to contacts, accounts to contacts — across separate dev, test, and production environments, with role-based groups for each table set.</p>
-        <ul class="tag-list">
-          <li>Power Platform</li><li>Model-Driven App</li><li>Dataverse</li>
-        </ul>
-      </article>
-
-      <article class="project-card">
-        <h3>Expense Tracker</h3>
-        <p>A canvas app for personal expenses backed by SharePoint lists. Home, expense list, expense detail, and a summary report screen with date-range filtering, color-coded amounts past a threshold, attachment previews, and a reusable nav component across every screen.</p>
-        <ul class="tag-list">
-          <li>Power Apps</li><li>Canvas App</li><li>SharePoint</li>
-        </ul>
-      </article>
-
-      <article class="project-card">
-        <h3>AltruWiz</h3>
-        <p>A consolidated platform for community service initiatives and event management, featuring event creation, participation tracking, and a gamified experience point and reward system.</p>
-        <ul class="tag-list">
-          <li>React</li><li>TypeScript</li><li>Firebase</li><li>Material UI</li>
-        </ul>
-        <a class="project-link" href="https://github.com/AltruWiz/altruWiz" target="_blank" rel="noopener">View on GitHub ↗</a>
-      </article>
-
-      <article class="project-card">
-        <h3>AHRide</h3>
-        <p>A delivery website built with a separate frontend and backend. Open-source, still evolving.</p>
-        <ul class="tag-list">
-          <li>Full-Stack</li><li>Web</li>
-        </ul>
-        <a class="project-link" href="https://github.com/AHRide/AHRide" target="_blank" rel="noopener">View on GitHub ↗</a>
-      </article>
-
-      <article class="project-card">
-        <h3>Audibook</h3>
-        <p>A final-year Android project — an audiobook app built with Gradle. Group capstone work from college.</p>
-        <ul class="tag-list">
-          <li>Android</li><li>Java</li><li>Gradle</li>
-        </ul>
-        <a class="project-link" href="https://github.com/zentenshi/audibookfinal" target="_blank" rel="noopener">View on GitHub ↗</a>
-      </article>
-
-      <article class="project-card project-card-soon">
-        <h3>A small game, in progress</h3>
-        <p>Next up for this site — details soon.</p>
-        <ul class="tag-list">
-          <li>Coming soon</li>
-        </ul>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <div class="section-head">
-      <span class="section-tag">技 · Craft</span>
-      <h2>Skills</h2>
-    </div>
-    <div class="skills-grid">
-
-      <div class="skill-group">
-        <h3>IT Operations</h3>
-        <p>Infrastructure Monitoring · Incident Escalation · Client Coordination · Grafana Metrics · Agile Scrum</p>
+        <span class="section-sub">01 // COMMAND CENTER VIGILANCE</span>
       </div>
 
-      <div class="skill-group">
-        <h3>Power Platform</h3>
-        <p>Power Apps · Power Automate · Power Automate Desktop · SharePoint · SPFx</p>
+      <div class="about-grid">
+        <blockquote class="about-quote">
+          "Two principles balance my work: the relentless vigilance of keeping enterprise systems upright, and the quiet satisfaction of automating a workflow so humans never have to do it by hand again."
+        </blockquote>
+
+        <div class="about-body">
+          <p>
+            I operate on the Command Center floor at Advanced World Solutions Inc. — where alerts across Windows Server, Network, AWS/Azure Cloud, SRE/Unix, Cybersecurity, and Enterprise Storage converge. When anomalies trigger, I execute rapid incident triage, log investigations, and live escalation with client leadership.
+          </p>
+          <p>
+            Beyond the operations floor, I engineer solutions: bespoke SharePoint systems (Classic &amp; Modern SPFx customizers), automated Power Apps canvas and model-driven business tools, multi-stage Power Automate triggers, and custom data exporters that transform raw security metrics into actionable Grafana dashboards.
+          </p>
+          <p>
+            Certified in the rigorous PhilNITS Fundamental IT Engineer (FE) examination and JLPT N4 Japanese proficiency, I work seamlessly with cross-functional technical teams and Japanese enterprise stakeholders.
+          </p>
+        </div>
       </div>
 
-      <div class="skill-group">
-        <h3>Programming</h3>
-        <p>JavaScript · React · GoLang · Python · C · HTML · CSS · Bootstrap</p>
+      <!-- Live Command Center Stats -->
+      <div class="command-center-stat-row">
+        <div class="stat-box">
+          <div class="stat-tag">[EXPERIENCE]</div>
+          <div class="stat-val">3+</div>
+          <div class="stat-desc">Years in IT Command Center Ops, Automation &amp; R&amp;D</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-tag">[STANDARDS]</div>
+          <div class="stat-val">FE</div>
+          <div class="stat-desc">PhilNITS Fundamental IT Engineer Certified</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-tag">[BILINGUAL]</div>
+          <div class="stat-val">N4</div>
+          <div class="stat-desc">JLPT Japanese Proficiency (Japan-facing workflows)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-tag">[MONITORING]</div>
+          <div class="stat-val">6</div>
+          <div class="stat-desc">Critical Infrastructure Domains Watched 24/7</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION (道 · Path) -->
+    <section class="section" id="experience">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="section-tag">道 · PATH</span>
+          <h2>Experience &amp; Operations</h2>
+        </div>
+        <span class="section-sub">02 // CAREER TIMELINE</span>
       </div>
 
-      <div class="skill-group">
-        <h3>Automation &amp; APIs</h3>
-        <p>API Integration · Data Processing · Workflow Automation · Twilio / SendGrid · Airtable</p>
+      <div class="timeline-list">
+        
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date-chip">Jul 2023 — Present</span>
+            <span class="timeline-role-badge">FULL-TIME · R&amp;D</span>
+            <h4 class="timeline-company">Advanced World Solutions Inc.</h4>
+          </div>
+          <div class="timeline-content">
+            <h3>Research &amp; Development Engineer</h3>
+            <ul>
+              <li>Manage real-time infrastructure observability across Windows, Network, Cloud, SRE/Unix, Cybersecurity, and Storage in enterprise Command Center operations.</li>
+              <li>Lead critical incident escalation, incident response coordination, and voice/chat client bridge management during high-priority outages.</li>
+              <li>Engineered an internal <strong>Darktrace Security Exporter</strong> converting raw anomaly data into Prometheus/Grafana time-series metrics.</li>
+              <li>Architected an automated <strong>Google Sheets + Zoom API pipeline</strong> tracking outgoing call telemetry, saving operational overhead.</li>
+              <li>Automated Securio cybersecurity training governance, eliminating monthly compliance tracking effort.</li>
+              <li>Built enterprise SharePoint &amp; Power Platform solutions: customized forms, Power Automate approval flows, and SPFx modern web parts.</li>
+              <li>Developed Power Automate Desktop RPA bots for UI validation, JSON dataset comparison, and timestamped test reports.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span class="timeline-date-chip">Jul 2022 — Oct 2022</span>
+            <span class="timeline-role-badge">INTERNSHIP (OJT)</span>
+            <h4 class="timeline-company">Sun* Inc.</h4>
+          </div>
+          <div class="timeline-content">
+            <h3>Web Developer Intern</h3>
+            <ul>
+              <li>Collaborated in an Agile Scrum squad with senior engineers developing full-stack applications and automated QA pipelines.</li>
+              <li>Trained in React, JavaScript, Docker containerization, Heroku cloud deployments, and QA testing standards.</li>
+              <li>Implemented responsive front-end interfaces utilizing React, HTML5, CSS3, and Bootstrap.</li>
+              <li>Assumed project team leadership during sprint execution, orchestrating component builds and peer reviews.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS SECTION (作 · Works) -->
+    <section class="section" id="projects">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="section-tag">作 · WORKS</span>
+          <h2>Selected Projects</h2>
+        </div>
+        <span class="section-sub">03 // AUTOMATION &amp; SOFTWARE</span>
       </div>
 
-      <div class="skill-group">
-        <h3>Productivity</h3>
-        <p>Google Workspace · Microsoft 365 · Slack · Teams · Zoom · Notion · Canva · Figma</p>
+      <!-- Filter Bar -->
+      <div class="project-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="cyber">Security &amp; Automation</button>
+        <button class="filter-btn" data-filter="web">Full-Stack &amp; Web</button>
+        <button class="filter-btn" data-filter="power">Power Platform</button>
       </div>
 
-      <div class="skill-group">
-        <h3>Languages</h3>
-        <p>English (fluent) · Japanese — JLPT N4</p>
+      <div class="projects-grid">
+
+        <!-- 1. Darktrace Exporter -->
+        <article class="project-card" data-category="cyber">
+          <div class="project-top">
+            <span class="project-category-tag">CYBERSECURITY &amp; OBSERVABILITY</span>
+            <h3>Darktrace Exporter &amp; Grafana Integration</h3>
+            <p>Internal infrastructure telemetry pipeline extracting raw security anomalies from Darktrace and parsing them into structured Grafana dashboards for centralized Command Center visibility.</p>
+          </div>
+          <div class="project-bottom">
+            <ul class="tag-list">
+              <li>Darktrace</li><li>Grafana</li><li>Observability</li><li>Python/Go</li><li>Telemetry</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 2. AltruWiz -->
+        <article class="project-card" data-category="web">
+          <div class="project-top">
+            <span class="project-category-tag">COMMUNITY PLATFORM &amp; GAMIFICATION</span>
+            <h3>AltruWiz</h3>
+            <p>A consolidated platform for community service initiatives and event management. Features event creation, volunteer tracking, and a gamified experience point and reward system to drive social participation.</p>
+          </div>
+          <div class="project-bottom">
+            <ul class="tag-list">
+              <li>React</li><li>TypeScript</li><li>Firebase</li><li>Material UI</li><li>Vite</li>
+            </ul>
+            <div class="project-links-row">
+              <a href="https://github.com/AltruWiz/altruWiz" target="_blank" rel="noopener" class="project-link-btn">
+                View on GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. SharePoint & Power Platform -->
+        <article class="project-card" data-category="power">
+          <div class="project-top">
+            <span class="project-category-tag">ENTERPRISE AUTOMATION</span>
+            <h3>SharePoint Development for Japanese Client</h3>
+            <p>Customized SharePoint solutions across Classic and Modern architectures. Built Power Apps customized forms, automated email notification flows with auto-shortened URLs, permission-gated views, and SPFx Application Customizer floating buttons.</p>
+          </div>
+          <div class="project-bottom">
+            <ul class="tag-list">
+              <li>SharePoint</li><li>Power Apps</li><li>Power Automate</li><li>SPFx</li><li>TypeScript</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 4. Web Scraping & Test Automation -->
+        <article class="project-card" data-category="cyber">
+          <div class="project-top">
+            <span class="project-category-tag">RPA &amp; QA AUTOMATION</span>
+            <h3>Web Scraping &amp; Test Automation</h3>
+            <p>Power Automate Desktop robotic workflows validating website UI components across JSON and CSV datasets, producing automated timestamped regression logs and validation exports.</p>
+          </div>
+          <div class="project-bottom">
+            <ul class="tag-list">
+              <li>Power Automate Desktop</li><li>RPA</li><li>QA Testing</li><li>CSV/JSON</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 5. Zoom API Pipeline -->
+        <article class="project-card" data-category="cyber">
+          <div class="project-top">
+            <span class="project-category-tag">API INTEGRATION</span>
+            <h3>Zoom API Call-Logging Automation</h3>
+            <p>Automated operational pipeline integrating the Zoom REST API with Google Sheets to retrieve, sanitize, and log outgoing call metadata automatically, reducing manual Command Center overhead.</p>
+          </div>
+          <div class="project-bottom">
+            <ul class="tag-list">
+              <li>Zoom API</li><li>Google Apps Script</li><li>REST API</li><li>Automation</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 6. AHRide -->
+        <article class="project-card" data-category="web">
+          <div class="project-top">
+            <span class="project-category-tag">WEB APPLICATION</span>
+            <h3>AHRide</h3>
+            <p>A modern full-stack delivery application architected with decoupled frontend and backend services for on-demand booking and tracking.</p>
+          </div>
+          <div class="project-bottom">
+            <ul class="tag-list">
+              <li>Full-Stack</li><li>JavaScript</li><li>Node.js</li><li>REST API</li>
+            </ul>
+            <div class="project-links-row">
+              <a href="https://github.com/AHRide/AHRide" target="_blank" rel="noopener" class="project-link-btn">
+                View on GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. Audibook Final -->
+        <article class="project-card" data-category="web">
+          <div class="project-top">
+            <span class="project-category-tag">MOBILE APPLICATION</span>
+            <h3>Audibook</h3>
+            <p>An Android audiobook player built with Java and Gradle featuring playback state caching, structured audio chapter management, and offline bookmarking.</p>
+          </div>
+          <div class="project-bottom">
+            <ul class="tag-list">
+              <li>Android</li><li>Java</li><li>Gradle</li><li>Mobile UX</li>
+            </ul>
+            <div class="project-links-row">
+              <a href="https://github.com/zentenshi/audibookfinal" target="_blank" rel="noopener" class="project-link-btn">
+                View on GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Wired Brain Coffee -->
+        <article class="project-card" data-category="power">
+          <div class="project-top">
+            <span class="project-category-tag">POWER PLATFORM</span>
+            <h3>Wired Brain Coffee</h3>
+            <p>Model-driven Dataverse application modeling multi-franchise coffee shop entities (locations, landlords, contacts, accounts) with segregated dev/test/prod environments and strict role-based access control.</p>
+          </div>
+          <div class="project-bottom">
+            <ul class="tag-list">
+              <li>Power Platform</li><li>Model-Driven App</li><li>Dataverse</li><li>RBAC</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 9. Expense Tracker -->
+        <article class="project-card" data-category="power">
+          <div class="project-top">
+            <span class="project-category-tag">CANVAS APP</span>
+            <h3>Enterprise Expense Tracker</h3>
+            <p>Interactive Canvas App backed by SharePoint lists with date-range budgeting, automated color-coded spending thresholds, attachment preview modals, and global navigation.</p>
+          </div>
+          <div class="project-bottom">
+            <ul class="tag-list">
+              <li>Power Apps</li><li>SharePoint</li><li>Canvas UI</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE COMMAND CENTER TERMINAL (端 · Terminal Console) -->
+    <section class="section" id="terminal">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="section-tag">端 · CONSOLE</span>
+          <h2>Command Center Terminal</h2>
+        </div>
+        <span class="section-sub">04 // INTERACTIVE TELEMETRY HUD</span>
       </div>
 
-    </div>
-  </section>
+      <div class="terminal-wrapper">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+          </div>
+          <span class="terminal-title">renz@command-center:~ (zsh/powershell)</span>
+          <span class="terminal-actions">STATUS: 200 OK</span>
+        </div>
 
-  <!-- CERTIFICATIONS & EDUCATION -->
-  <section class="section" id="education">
-    <div class="section-head">
-      <span class="section-tag">証 · Record</span>
-      <h2>Certifications &amp; Education</h2>
-    </div>
-    <div class="cred-grid">
-      <div class="cred-card">
-        <p class="cred-kicker">Certification</p>
-        <h3>PhilNITS Fundamental IT Engineer (FE)</h3>
-        <p>Passer</p>
+        <div class="terminal-body" id="terminalBody">
+          <div class="terminal-welcome">
+            <p>Type <span class="cmd-chip" data-cmd="help">help</span> to list available commands or click quick presets below.</p>
+            <p>Connected to <span class="highlight">Renz Brian Velez's Operations Environment</span>.</p>
+          </div>
+
+          <div class="terminal-output-area" id="terminalOutput">
+            <!-- Dynamic terminal lines will render here -->
+          </div>
+
+          <div class="terminal-input-row">
+            <span class="terminal-prompt">renz@rbv-ops:~$</span>
+            <input type="text" id="terminalInput" class="terminal-input" placeholder="type 'help', 'status', 'projects', 'skills'..." autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+
+        <!-- Terminal Quick Action Chips -->
+        <div class="terminal-preset-buttons">
+          <button class="term-btn" data-cmd="status">status</button>
+          <button class="term-btn" data-cmd="projects">projects</button>
+          <button class="term-btn" data-cmd="skills">skills</button>
+          <button class="term-btn" data-cmd="darktrace">darktrace</button>
+          <button class="term-btn" data-cmd="certs">certs</button>
+          <button class="term-btn" data-cmd="contact">contact</button>
+          <button class="term-btn" data-cmd="clear">clear</button>
+        </div>
       </div>
-      <div class="cred-card">
-        <p class="cred-kicker">Certification</p>
-        <h3>JLPT N4</h3>
-        <p>Japanese-Language Proficiency Test — Passer</p>
+    </section>
+
+    <!-- SKILLS & SECURITY MATRIX (技 · Craft) -->
+    <section class="section" id="skills">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="section-tag">技 · CRAFT</span>
+          <h2>Capabilities &amp; Matrix</h2>
+        </div>
+        <span class="section-sub">05 // TECHNICAL PROFICIENCY</span>
       </div>
-      <div class="cred-card">
-        <p class="cred-kicker">Certification</p>
-        <h3>Microsoft PL-100</h3>
-        <p>Power Platform App Maker</p>
+
+      <div class="skills-matrix-grid">
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon">⚡</span>
+            <h3>IT Operations &amp; SRE</h3>
+          </div>
+          <p>Infrastructure Observability · Command Center Incident Escalation · 24/7 Client Bridge Management · Root Cause Analysis · Agile Scrum Methodology</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon">🛡</span>
+            <h3>Cybersecurity &amp; Monitoring</h3>
+          </div>
+          <p>Darktrace Threat Metrics · Securio Compliance Governance · Grafana Centralized Dashboards · Log Auditing · Incident Triage</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon">⚙</span>
+            <h3>Power Platform &amp; SharePoint</h3>
+          </div>
+          <p>Power Apps (Canvas &amp; Model-Driven) · Power Automate Cloud &amp; Desktop RPA · Dataverse · SharePoint Classic &amp; Modern · SPFx Customizers</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon">💻</span>
+            <h3>Programming &amp; Web</h3>
+          </div>
+          <p>JavaScript (ES6+) · TypeScript · React · GoLang · Python · C · HTML5 · CSS3 · Bootstrap · REST APIs</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon">🔗</span>
+            <h3>APIs, Cloud &amp; Automation</h3>
+          </div>
+          <p>Zoom REST API · Google Apps Script · Twilio / SendGrid · Airtable · Docker · Firebase · Webhooks · CSV/JSON Data Parsing</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <span class="skill-card-icon">🌏</span>
+            <h3>Languages &amp; Tooling</h3>
+          </div>
+          <p>English (Fluent) · Japanese (JLPT N4) · Git / GitHub · VS Code · Google Workspace · Microsoft 365 · Slack · Teams · Notion · Figma</p>
+        </div>
+
       </div>
-      <div class="cred-card">
-        <p class="cred-kicker">Education</p>
-        <h3>BS in Computer Engineering</h3>
-        <p>Cebu Institute of Technology – University · Jun 2019 – Jun 2023<br>President, ICPEP-SE (CIT-U Chapter)</p>
+    </section>
+
+    <!-- CERTIFICATIONS & EDUCATION (証 · Credentials) -->
+    <section class="section" id="credentials">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="section-tag">証 · RECORD</span>
+          <h2>Certifications &amp; Education</h2>
+        </div>
+        <span class="section-sub">06 // ACCREDITATIONS</span>
       </div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section class="section contact" id="contact">
-    <div class="section-head">
-      <span class="section-tag">結 · Connect</span>
-      <h2>Get in touch</h2>
-    </div>
-    <p class="contact-lede">
-      Open to Research &amp; Development, IT operations, and automation roles.
-      If there's a system worth watching or a task worth automating, my inbox is open.
-    </p>
-    <div class="contact-links">
-      <a href="mailto:just.renz.official@gmail.com">just.renz.official@gmail.com</a>
-      <a href="tel:+639275357462">+63 927 535 7462</a>
-      <a href="https://linkedin.com/in/velezrenz" target="_blank" rel="noopener">linkedin.com/in/velezrenz</a>
-    </div>
-  </section>
+      <div class="cred-cards-grid">
 
-</main>
+        <div class="cred-box">
+          <div>
+            <div class="cred-header">
+              <span class="cred-tag">ENGINEERING ACCREDITATION</span>
+              <span class="cred-status-pill">PASSED</span>
+            </div>
+            <h3>PhilNITS Fundamental IT Engineer (FE)</h3>
+            <p>PhilNITS (Philippine National IT Standards Foundation) certification equivalent to the Japan Information-Technology Engineers Examination (ITEE FE). Covers system architecture, algorithms, networking, security, and project management.</p>
+          </div>
+        </div>
 
-<footer class="footer">
-  <p>© 2026 Renz Brian Velez · Bogo City, Cebu, Philippines</p>
-  <a href="#top" class="footer-top">Back to top ↑</a>
-</footer>
+        <div class="cred-box">
+          <div>
+            <div class="cred-header">
+              <span class="cred-tag">JAPANESE LANGUAGE</span>
+              <span class="cred-status-pill">PASSED</span>
+            </div>
+            <h3>JLPT N4 (Japanese-Language Proficiency)</h3>
+            <p>Certified Japanese linguistic proficiency by the Japan Foundation and Japan Educational Exchanges and Services. Enables direct coordination with Japanese engineering teams and documentation.</p>
+          </div>
+        </div>
 
-<script src="js/main.js"></script>
+        <div class="cred-box">
+          <div>
+            <div class="cred-header">
+              <span class="cred-tag">MICROSOFT CERTIFIED</span>
+              <span class="cred-status-pill">ACCREDITED</span>
+            </div>
+            <h3>Microsoft PL-100</h3>
+            <p>Power Platform App Maker Certification verifying domain mastery in designing business solutions with Power Apps, Power Automate, Dataverse, and automated workflows.</p>
+          </div>
+        </div>
+
+        <div class="cred-box">
+          <div>
+            <div class="cred-header">
+              <span class="cred-tag">ACADEMIC DEGREE</span>
+              <span class="cred-status-pill">GRADUATED 2023</span>
+            </div>
+            <h3>BS in Computer Engineering</h3>
+            <p>Cebu Institute of Technology – University (CIT-U) · 2019 – 2023.<br>Served as <strong>President of ICPEP-SE</strong> (CIT-U Student Chapter), leading technical workshops and university engineering summits.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION (結 · Connect) -->
+    <section class="section contact-section" id="contact">
+      <div class="section-head">
+        <div class="section-title-wrap">
+          <span class="section-tag">結 · CONNECT</span>
+          <h2>Get in Touch</h2>
+        </div>
+      </div>
+
+      <p class="contact-lede">
+        Open to Research &amp; Development, enterprise IT operations, automation engineering, and cybersecurity roles.
+        If there's an infrastructure worth protecting or a workflow worth automating, let's connect.
+      </p>
+
+      <div class="contact-channels">
+        <a href="mailto:just.renz.official@gmail.com" class="contact-big-link magnetic">
+          just.renz.official@gmail.com
+        </a>
+      </div>
+
+      <div class="contact-meta-row">
+        <span>📍 Bogo City, Cebu, Philippines</span>
+        <a href="tel:+639275357462">📞 +63 927 535 7462</a>
+        <a href="https://linkedin.com/in/velezrenz" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/zentenshi" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-wrap">
+    <p>© 2026 Renz Brian Velez · Built with Zen Yin-Yang &amp; Cyber Precision</p>
+    <a href="#top" class="footer-back-top">Back to top ↑</a>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
 </body>
 </html>
